@@ -14,7 +14,7 @@ echo -e  'y\n' | ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 echo 'Host *' >> .ssh/config
 echo 'StrictHostKeyChecking no' >> .ssh/config
 chmod 400 .ssh/config
-chown azureuser:azureuser /home/azureuser/.ssh/config
+chown $USER:$USER /home/$USER/.ssh/config
 
 nmap -sn $IPPRE.* | grep $IPPRE. | awk '{print $5}' > nodeips.txt
 for NAME in `cat nodeips.txt`; do sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'hostname' >> nodenames.txt;done
