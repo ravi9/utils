@@ -1,8 +1,8 @@
 #!/bin/bash
 #for centos user must first install epel-release, sshpass, and nmap (sshpass and nmap are available from epel-release for CENTOS)
 
-#usage ./authMe2.sh [password]
-# ./authMe2.sh Azure@123
+#usage ./user_authentication.sh [password]
+# ./user_authentication.sh Azure@123
 USER=$(id -u -n)
 PASS=$1
 IPPRE=$(ifconfig eth0 | grep -w inet| awk '{print $2}' | cut -d":" -f2 | cut -d"." -f1-3)
